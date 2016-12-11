@@ -1,0 +1,34 @@
+---
+security:
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+
+    # Fitness data
+    fitness:
+      oauth:
+        failure_path: /login
+        login_path: /login
+        resource_owners:
+          google: /login/check-google
+        use_forward: false
+        oauth_user_provider:
+          service: hwi_oauth.user.provider
+      pattern: ^/(fitness(/|$)|login_check$|login/check-google$)
+
+    main:
+      anonymous: ~
+
+  # Providers
+  providers:
+    in_memory:
+      memory: ~
+    hwi:
+        id: hwi_oauth.user.provider
+
+  # Access Control
+  access_control:
+    -
+      path: ^/login
+      roles: IS_AUTHENTICATED_ANONYMOUSLY
