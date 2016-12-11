@@ -1,9 +1,6 @@
 <?php
 
 /*
- * The MIT License (MIT)
- * =====================
- *
  * Copyright © 2016 Billie Thompson (Purple Booth Ltd)
  *
  * Permission is hereby granted, free of charge, to any person
